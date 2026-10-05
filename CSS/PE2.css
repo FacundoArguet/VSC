@@ -1,0 +1,408 @@
+/* Reset general */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #212529;
+    background-color: #faf9f6; /* Tono cálido tipo papel/pergamino suave */
+    line-height: 1.6;
+}
+
+/* Header / Navbar con paleta cálida de Escritura (Tonos Terracota/Ámbar) */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 65px;
+    background-color: #e2d9cc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #4a3b32;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #4a3b32;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.btn-login {
+    background-color: #ffffff;
+    color: #8c5a32;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #f3ece3;
+}
+
+/* Layout Principal */
+.app-container {
+    display: flex;
+    min-height: calc(100vh - 65px);
+}
+
+/* Sidebar Lateral */
+.sidebar {
+    width: 240px;
+    background-color: #f3efe9;
+    border-right: 1px solid #e2dad0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 0;
+    transition: margin-left 0.3s ease;
+    flex-shrink: 0;
+    position: sticky;
+    top: 65px;
+    height: calc(100vh - 65px);
+}
+
+.sidebar.collapsed {
+    margin-left: -240px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #5a4b41;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+    background-color: #e9e0d4;
+    color: #8c5a32;
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    border-top: 1px solid #e2dad0;
+    padding-top: 12px;
+    position: relative;
+}
+
+.sidebar-username {
+    min-width: 0;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 24px;
+    color: #5a4b41;
+    font-size: 0.95rem;
+}
+
+.user-avatar {
+    flex-shrink: 0;
+}
+
+.sidebar-logo {
+    width: 42px !important;
+    height: 42px !important;
+    max-width: 42px;
+    max-height: 42px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+    filter: grayscale(100%) contrast(1.12);
+    mix-blend-mode: multiply;
+    margin-left: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+.sidebar-user .sidebar-logo {
+    margin-left: auto;
+}
+
+.sidebar-user {
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.user-menu {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: calc(100% + 8px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+    color: #5a4b41;
+    background: #ffffff;
+    border: 1px solid #e2dad0;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(74, 59, 50, 0.14);
+    z-index: 110;
+}
+
+.user-menu[hidden] {
+    display: none;
+}
+
+.user-menu strong {
+    color: #3d2f26;
+}
+
+.user-menu > span {
+    font-size: 0.8rem;
+    color: #7c6b5e;
+}
+
+.user-menu-video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #e8e2d9;
+}
+
+.user-menu-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-menu-option {
+    padding: 8px 0;
+    color: #8c5a32;
+    background: transparent;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.user-menu-logout {
+    padding-top: 8px;
+    color: #a33a2b;
+    border-top: 1px solid #e2dad0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Contenido Principal */
+.main-content {
+    flex: 1;
+    padding: 40px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.main-heading {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #3d2f26;
+}
+
+.paragraph-main {
+    font-size: 1rem;
+    color: #6c5a4e;
+    margin-bottom: 32px;
+}
+
+/* Tarjetas Literarias (Sin imágenes, enfocadas en tipografía) */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.writing-card {
+    background-color: #ffffff;
+    border: 1px solid #e8e2d9;
+    border-left: 5px solid #8c5a32;
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    scroll-margin-top: 80px;
+}
+
+.card-header {
+    margin-bottom: 16px;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8c5a32;
+    background-color: #f7f1e9;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c221e;
+}
+
+.paragraph {
+    font-size: 0.95rem;
+    color: #4a3e37;
+    margin-bottom: 12px;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* Botón Flotante Scroll Top */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background-image: url("https://media.tenor.com/guwbQpR6xXgAAAAj/undertale.gif");
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 50%;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid #e2dad0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-brand h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #3d2f26;
+    margin-bottom: 8px;
+}
+
+.footer-brand p {
+    font-size: 0.85rem;
+    color: #7c6b5e;
+}
+
+.footer-contact h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #3d2f26;
+    margin-bottom: 8px;
+}
+
+.footer-contact ul {
+    list-style: none;
+}
+
+.footer-contact li {
+    font-size: 0.85rem;
+    color: #7c6b5e;
+    margin-bottom: 4px;
+}
+
+/* Adaptatibilidad Móvil */
+@media (max-width: 640px) {
+    .main-content {
+        padding: 24px 16px;
+    }
+
+    .sidebar {
+        position: fixed;
+        z-index: 90;
+    }
+
+    .site-footer {
+        flex-direction: column;
+    }
+}
+
+.logo {
+    width: 42px !important;
+    height: 42px !important;
+    max-width: 42px;
+    max-height: 42px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+    filter: grayscale(100%) contrast(1.12);
+    mix-blend-mode: multiply;
+}

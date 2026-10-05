@@ -1,0 +1,53 @@
+.translation-button {
+    position: fixed;
+    left: 22px;
+    bottom: 22px;
+    z-index: 1000;
+    width: 58px;
+    height: 58px;
+    padding: 0;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.28);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.translation-button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.translation-button .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.translation-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 7px 20px rgba(15, 23, 42, 0.36);
+}
+
+.translation-button:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .translation-button {
+        left: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+    }
+}

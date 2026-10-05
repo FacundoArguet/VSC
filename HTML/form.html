@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title data-i18n="accessPageTitle">
+        Acceso - Unite:Creative
+    </title>
+
+    <link rel="stylesheet" href="../CSS/form.CSS">
+    <link rel="stylesheet" href="../CSS/translation-button.css">
+    <link rel="stylesheet" href="../CSS/theme.css">
+</head>
+
+<body>
+
+    <div class="contenedor-principal">
+
+        <!-- BOTÓN VOLVER -->
+        <a
+            class="volver"
+            href="index.php"
+            data-i18n="backIndex"
+        >
+            ← Volver a index
+        </a>
+
+
+        <div class="card-form">
+            <img src="../Imagenes/UniteCreativeIMG.jpg" alt="Logo de Unite:Creative" class="form-logo">
+
+            <!-- =========================================
+                 FORMULARIO DE INICIO DE SESIÓN
+            ========================================== -->
+
+            <div
+                id="login"
+                class="formulario active"
+            >
+
+                <h1
+                    class="titulo-form"
+                    data-i18n="loginTitle"
+                >
+                    Bienvenido de nuevo
+                </h1>
+
+                <p
+                    class="subtitulo"
+                    data-i18n="loginSubtitle"
+                >
+                    Ingresa tus datos para continuar
+                </p>
+
+
+                <form
+                    id="loginForm"
+                    action="../PHP/login.php"
+                    method="POST"
+                >
+
+                    <!-- USUARIO -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="loginUsuario"
+                            data-i18n="usernameLabel"
+                        >
+                            Nombre de usuario
+                        </label>
+
+                        <input
+                            id="loginUsuario"
+                            name="username"
+                            type="text"
+                            data-i18n-placeholder="usernamePlaceholder"
+                            placeholder="Ingresa tu usuario"
+                            required
+                        >
+
+                        <span
+                            class="mensaje"
+                            id="loginUsuarioMsg"
+                        ></span>
+
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="loginPassword"
+                            data-i18n="passwordLabel"
+                        >
+                            Contraseña
+                        </label>
+
+
+                        <div class="password-container">
+
+                            <input
+                                id="loginPassword"
+                                name="password"
+                                type="password"
+                                data-i18n-placeholder="passwordPlaceholder"
+                                placeholder="Ingresa tu contraseña"
+                                required
+                            >
+
+
+                            <!-- OJO -->
+
+                            <button
+                                type="button"
+                                class="btn-toggle-password"
+                                data-target="loginPassword"
+                                data-i18n-aria-label="showPassword"
+                                aria-label="Mostrar contraseña"
+                            >
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+
+                                    <path
+                                        d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                    ></path>
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="3"
+                                    ></circle>
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+
+                        <span
+                            class="mensaje"
+                            id="loginPasswordMsg"
+                        ></span>
+
+                    </div>
+
+
+                    <!-- BOTÓN LOGIN -->
+
+                    <button
+                        type="submit"
+                        class="btn-submit"
+                        data-i18n="loginSubmit"
+                    >
+                        Iniciar Sesión
+                    </button>
+
+
+                    <span
+                        class="mensaje-general"
+                        id="loginMsg"
+                    ></span>
+
+                </form>
+
+
+                <!-- CAMBIAR A REGISTRO -->
+
+                <p class="enlace-cambio">
+
+                    <span data-i18n="noAccount">
+                        ¿No tienes una cuenta?
+                    </span>
+
+                    <a
+                        href="#registro"
+                        id="btnIrRegistro"
+                        onclick="mostrarRegistro()"
+                        data-i18n="createIt"
+                    >
+                        ¡Créala!
+                    </a>
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 FORMULARIO DE REGISTRO
+            ========================================== -->
+
+            <div
+                id="registro"
+                class="formulario"
+            >
+
+                <h1
+                    class="titulo-form"
+                    data-i18n="registerTitle"
+                >
+                    Únete a la Comunidad
+                </h1>
+
+                <p
+                    class="subtitulo"
+                    data-i18n="registerSubtitle"
+                >
+                    Crea tu cuenta para comenzar
+                </p>
+
+
+                <form
+                    id="registroForm"
+                    action="../PHP/register.php"
+                    method="POST"
+                    novalidate
+                >
+
+
+                    <!-- NOMBRE -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="regUsuario"
+                            data-i18n="fullNameLabel"
+                        >
+                            Nombre completo
+                        </label>
+
+                        <input
+                            id="regUsuario"
+                            name="username"
+                            type="text"
+                            data-i18n-placeholder="fullNamePlaceholder"
+                            placeholder="Tu nombre completo"
+                            minlength="3"
+                            maxlength="30"
+                            autocomplete="name"
+                            required
+                            aria-describedby="regUsuarioMsg"
+                        >
+
+                        <span
+                            class="mensaje"
+                            id="regUsuarioMsg"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- CORREO -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="regCorreo"
+                            data-i18n="emailLabel"
+                        >
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            id="regCorreo"
+                            name="gmail"
+                            type="email"
+                            data-i18n-placeholder="emailPlaceholder"
+                            placeholder="tu@correo.com"
+                            maxlength="100"
+                            list="dominiosCorreo"
+                            autocomplete="email"
+                            required
+                            aria-describedby="regCorreoMsg"
+                        >
+
+
+                        <datalist id="dominiosCorreo">
+
+                            <option value="@gmail.com"></option>
+
+                            <option value="@hotmail.com"></option>
+
+                            <option value="@outlook.com"></option>
+
+                        </datalist>
+
+
+                        <span
+                            class="mensaje"
+                            id="regCorreoMsg"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="form-group">
+
+                        <div class="label-line">
+
+                            <label
+                                for="regPassword"
+                                data-i18n="passwordLabel"
+                            >
+                                Contraseña
+                            </label>
+
+                            <span
+                                id="fuerzaTexto"
+                                class="fuerza-texto"
+                                aria-live="polite"
+                            ></span>
+
+                        </div>
+
+
+                        <div class="password-container">
+
+                            <input
+                                id="regPassword"
+                                name="password"
+                                type="password"
+                                data-i18n-placeholder="createPasswordPlaceholder"
+                                placeholder="Crea una contraseña"
+                                minlength="8"
+                                maxlength="72"
+                                autocomplete="new-password"
+                                required
+                                aria-describedby="passwordAyuda regPasswordMsg"
+                            >
+
+
+                            <!-- OJO CONTRASEÑA -->
+
+                            <button
+                                type="button"
+                                class="btn-toggle-password"
+                                data-target="regPassword"
+                                data-i18n-aria-label="showPassword"
+                                aria-label="Mostrar contraseña"
+                            >
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+
+                                    <path
+                                        d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                    ></path>
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="3"
+                                    ></circle>
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- BARRA DE FUERZA -->
+
+                        <div
+                            class="barra-fuerza"
+                            aria-hidden="true"
+                        >
+
+                            <span id="barraFuerza"></span>
+
+                        </div>
+
+
+                        <small
+                            id="passwordAyuda"
+                            class="ayuda"
+                            data-i18n="passwordHelp"
+                        >
+                            8 caracteres, mayúscula, minúscula, número y símbolo.
+                        </small>
+
+
+                        <span
+                            class="mensaje"
+                            id="regPasswordMsg"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- CONFIRMAR CONTRASEÑA -->
+
+                    <div class="form-group">
+
+                        <label
+                            for="regPasswordConfirm"
+                            data-i18n="confirmPasswordLabel"
+                        >
+                            Confirmar contraseña
+                        </label>
+
+
+                        <div class="password-container">
+
+                            <input
+                                id="regPasswordConfirm"
+                                name="password_confirm"
+                                type="password"
+                                data-i18n-placeholder="confirmPasswordPlaceholder"
+                                placeholder="Repite tu contraseña"
+                                minlength="8"
+                                maxlength="72"
+                                autocomplete="new-password"
+                                required
+                                aria-describedby="regPasswordConfirmMsg"
+                            >
+
+
+                            <!-- OJO CONFIRMAR CONTRASEÑA -->
+
+                            <button
+                                type="button"
+                                class="btn-toggle-password"
+                                data-target="regPasswordConfirm"
+                                data-i18n-aria-label="showPassword"
+                                aria-label="Mostrar contraseña"
+                            >
+
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+
+                                    <path
+                                        d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                                    ></path>
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="3"
+                                    ></circle>
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+
+                        <span
+                            class="mensaje"
+                            id="regPasswordConfirmMsg"
+                        ></span>
+
+                    </div>
+
+
+
+                    <!-- BOTÓN REGISTRO -->
+
+                    <button
+                        type="submit"
+                        class="btn-submit btn-registro"
+                        id="btnRegistro"
+                        data-i18n="createAccount"
+                    >
+                        Crear cuenta
+                    </button>
+
+
+                    <span
+                        class="mensaje-general"
+                        id="regMsg"
+                    ></span>
+
+                </form>
+
+
+
+                <!-- CAMBIAR A LOGIN -->
+
+                <p class="enlace-cambio">
+
+                    <span data-i18n="alreadyAccount">
+                        ¿Ya tienes una cuenta?
+                    </span>
+
+                    <a
+                        href="#login"
+                        id="btnIrLogin"
+                        onclick="mostrarLogin()"
+                        data-i18n="loginLink"
+                    >
+                        Inicia sesión
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         BOTÓN DE IDIOMA
+    ========================================== -->
+
+    <button
+        class="translation-button"
+        id="lang-btn"
+        type="button"
+        aria-label="Cambiar idioma"
+        title="Cambiar idioma"
+    >
+
+        <img
+            src="../Imagenes/translate-icon.svg"
+            alt="Traducir"
+        >
+
+        <span
+            class="sr-only"
+            data-i18n="language"
+        >
+            Idioma: English
+        </span>
+
+    </button>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="../JS/site.js"></script>
+
+    <script src="../JS/form.js"></script>
+
+</body>
+
+</html>
